@@ -1,4 +1,4 @@
-# ComfyUI Guardian Agent (脱敏公开版)
+# ComfyUI Guardian Agent
 
 ## 简介
 ComfyUI 生产环境守护 Agent，在本地运行，通过 SSH 控制 ComfyUI 服务器。
@@ -71,11 +71,14 @@ opencode
 └── README.md                   ← 本文件
 ```
 
-## 依赖版本锁 (重要)
-- numpy: 1.26.4 (2.x 会破坏 insightface/numba)
-- soxr: 0.4.0 (1.x 版本 nanobind 崩溃)
+## 已知兼容性问题 (重要)
+以下包的版本经过大量验证，升级会导致真实崩溃，建议保持：
+- numpy: 1.26.4 — 2.x 会破坏 insightface / numba
+- soxr: 0.4.0 — 1.x 版本 nanobind 崩溃
 - httpx: 0.28.1
 - Python: 3.12.7
 
+`cg verify` 会自动检查这些版本，违反时报警。
+
 ## License
-MIT
+Apache-2.0
