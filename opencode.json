@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "biangfeng-gateway/glm-5.2",
+  "instructions": ["AGENTS.md"],
+  "default_agent": "comfyui-guardian",
+  "permission": {
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "skill": {
+      "*": "allow"
+    },
+    "edit": {
+      "*": "ask",
+      ".\\**": "allow"
+    },
+    "bash": {
+      "*": "ask",
+      "ssh <YOUR_SERVER_IP> *": "allow",
+      "ssh <YOUR_SERVER_IP> *pip*install*": "ask",
+      "ssh <YOUR_SERVER_IP> *systemctl*restart*<PROD_SERVICE>*": "deny",
+      "ssh <YOUR_SERVER_IP> *systemctl*stop*<PROD_SERVICE>*": "deny",
+      "ssh <YOUR_SERVER_IP> *rm -rf*": "deny"
+    }
+  }
+}
